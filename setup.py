@@ -6,7 +6,7 @@ setup(
     author='André Karlsson',
     license='GPLv3',
     author_email='andre.karlsson@protractus.se',
-    version='0.2.6',
+    version='0.2.7',
     url='https://github.com/joyider/wagtail_comments_xtd',
     classifiers=[
         "Environment :: Web Environment",
@@ -18,6 +18,7 @@ setup(
         "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
     ],
     packages=find_packages(),
+    include_package_data=True,
     python_requires='>=3',
     install_requires=[
         "wagtail>1.7",
