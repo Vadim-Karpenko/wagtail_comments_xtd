@@ -1,2 +1,2 @@
 include LICENSE.md
-recursive-include wagtail_comments_xtd/templates/*
+recursive-include wagtail_comments_xtd/templates *
