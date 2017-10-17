@@ -6,7 +6,7 @@ setup(
     author='André Karlsson',
     license='GPLv3',
     author_email='andre.karlsson@protractus.se',
-    version='0.1.0',
+    version='0.2.0',
     url='https://github.com/joyider/wagtail_comments_xtd',
     classifiers=[
         "Environment :: Web Environment",
