@@ -1,2 +1,2 @@
 include LICENSE.md
-graft wagtailcomments_xtd
+graft wagtail_comments_xtd
