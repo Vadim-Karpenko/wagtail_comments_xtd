@@ -65,3 +65,8 @@ Add `'wagtailfontawesome'` to INSTALLED_APPS if it's not there already
     EMAIL_HOST_USER = "alias@mail.com"
     EMAIL_HOST_PASSWORD = "yourpassword"
     DEFAULT_FROM_EMAIL = "Helpdesk <helpdesk@yourdomain>"
+    
+## Now what
+
+When you successfully have installed wagtail_comments_xtd, you have to **carefully** read the documentation for
+django_comments_xtd to configure the frontend for the commenting system
