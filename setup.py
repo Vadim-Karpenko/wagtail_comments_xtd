@@ -17,10 +17,7 @@ setup(
         'Topic :: Internet :: WWW/HTTP',
         "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
     ],
-    packages=['wagtail',
-              'Django',
-              'wagtailfontawesome',
-              'django-comments-xtd'],
+    packages=find_packages(),
     python_requires='>=3',
     install_requires=[
         "wagtail>1.7",
