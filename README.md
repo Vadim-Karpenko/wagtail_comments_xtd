@@ -17,16 +17,16 @@ working pip package, since the original is broken, and author does not seem to b
 ## Instructions
 ### Install
 
-`pip install wagtailcomments_xtd`
+`pip install wagtail_comments_xtd`
 
-Add `'wagtailcomments_xtd'` to your INSTALLED_APPS
+Add `'wagtail_comments_xtd'` to your INSTALLED_APPS
 
 Add `'wagtailfontawesome'` to INSTALLED_APPS if it's not there already
 
 ### Settings
 
 1.  Enable the "sites" framework &lt;enabling-the-sites-framework&gt; by adding `'django.contrib.sites'` to INSTALLED\_APPS and defining SITE\_ID. Visit the admin site and be sure that the domain field of the `Site` instance points to the correct domain (`localhost:8000` when running the default development server), as it will be used to create comment verification URLs, follow-up cancellations, etc.
-2.  Add `'django_comments_xtd'` and `'django_comments'`, in that order, to INSTALLED\_APPS.
+2.  Add `'django_comments_xtd'` and `'django_comments'`, **in that order**, to INSTALLED\_APPS.
 3.  Set the COMMENTS\_APP setting to `'django_comments_xtd'`.
 4.  Set the COMMENTS\_XTD\_MAX\_THREAD\_LEVEL to `N`, being `N` the maximum level of threading up to which comments will be nested in your project.
 
