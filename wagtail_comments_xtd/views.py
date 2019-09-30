@@ -1,3 +1,4 @@
+from django.urls import reverse
 from django.contrib import messages
 from wagtail.wagtailcore.models import Page
 from django.shortcuts import redirect, render
@@ -47,16 +48,27 @@ def comment_thread(request, page_pk, comment_pk):
 
 
 def update(request, page_pk, comment_pk, action):
-    comment = XtdComment.objects.get(pk=comment_pk)
+
+    # Fetch the current comment and all child comments.
+    # If we perform an action on just the parent, django_commnents_xtd's tree_from_queryset
+    # query fails to correctly return comments suitable for output.
+    # https://github.com/danirus/django-comments-xtd/blob/323cb394147120a5cacb9771ab527783b232132a/django_comments_xtd/models.py#L121
+    comments = XtdComment.objects.filter(parent_id=comment_pk)
+
     if action == 'unpublish':
-        comment.is_public = False
+        for comment in comments:
+            comment.is_public = False
     elif action == 'publish':
-        comment.is_public = True
+        for comment in comments:
+            comment.is_public = True
     elif action == 'hide':
-        comment.is_removed = True
+        for comment in comments:
+            comment.is_removed = True
     elif action == 'show':
-        comment.is_removed = False
-    comment.save()
+        for comment in comments:
+            comment.is_removed = False
+    XtdComment.objects.bulk_update(comments, ['is_public', 'is_removed'])
+
     messages.success(request, _("The comment has been updated successfully!"))
 
     return redirect(request.META.get('HTTP_REFERER'))
